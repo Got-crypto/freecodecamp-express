@@ -1,4 +1,5 @@
 require('dotenv').config()
+const bodyParser = require('body-parser')
 let express = require('express');
 let app = express();
 
@@ -12,6 +13,7 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use(bodyParser.urlencoded({extended: !1}))
 
 app.get('/', (req, res) => {
     res.sendFile(filePath)
