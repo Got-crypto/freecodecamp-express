@@ -32,7 +32,10 @@ app.get('/json', (req, res) => {
     res.json({message: response})
 })
 
-
+app.get('/:word/echo', (req, res) => {
+    const word = req.params.word
+    res.json({echo: word})
+})
 
 
 
