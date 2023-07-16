@@ -12,9 +12,19 @@ app.use((req, res, next) => {
     next()
 })
 
+
 app.get('/', (req, res) => {
     res.sendFile(filePath)
 })
+
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString()
+    next()
+    
+    }, (req, res) => {
+        res.json({time: req.time})
+    }
+)
 
 app.get('/json', (req, res) => {
     const style = process.env.MESSAGE_STYLE
